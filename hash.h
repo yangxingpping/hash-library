@@ -6,23 +6,25 @@
 
 #pragma once
 
+#include "HASHLIBExport.h"
 #include <string>
 
-/// abstract base class
-class Hash
-{
-public:
-  /// compute hash of a memory block
-  virtual std::string operator()(const void* data, size_t numBytes) = 0;
-  /// compute hash of a string, excluding final zero
-  virtual std::string operator()(const std::string& text) = 0;
+	/// abstract base class
+	class HASHLIB_EXPORT Hash
+	{
+	public:
+		/// compute hash of a memory block
+		virtual std::string operator()(const void* data, size_t numBytes) = 0;
+		/// compute hash of a string, excluding final zero
+		virtual std::string operator()(const std::string& text) = 0;
 
-  /// add arbitrary number of bytes
-  virtual void add(const void* data, size_t numBytes) = 0;
+		/// add arbitrary number of bytes
+		virtual void add(const void* data, size_t numBytes) = 0;
 
-  /// return latest hash as hex characters
-  virtual std::string getHash() = 0;
+		/// return latest hash as hex characters
+		virtual std::string getHash() = 0;
 
-  /// restart
-  virtual void reset() = 0;
-};
+		/// restart
+		virtual void reset() = 0;
+	};
+
